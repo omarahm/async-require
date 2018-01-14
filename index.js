@@ -47,7 +47,7 @@
                             module: sandboxModule,
                             exports: sandboxModule.exports
                         };
-                    vm.runInNewContext(script, extend({require:require}, global, sandbox));
+                    vm.runInNewContext(script, extend({require:require}, global, sandbox), { filename: path.basename(module) });
                     return sandbox.module.exports;
                 });
     }
